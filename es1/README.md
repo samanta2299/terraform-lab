@@ -21,12 +21,8 @@ In questo README, spiegherò tutti i passaggi necessari per eseguire il progetto
    git clone https://github.com/TUO_USERNAME/terraform-vm-project.git
    cd terraform-vm-project
 
-File del Progetto
+Esercizio 1: creazione di una VM con Terraform
 main.tf: File di configurazione di Terraform
-
-Il file main.tf è il cuore del progetto. Contiene tutte le configurazioni di Terraform per creare e gestire la macchina virtuale su VirtualBox.
-
-Contenuto di main.tf:
 
 terraform {
   required_providers {
@@ -40,8 +36,7 @@ terraform {
 resource "virtualbox_vm" "vm1" {
   count     = 1
   name      = "vm1"
-  # Utilizza un'immagine di Ubuntu, puoi anche utilizzare un URL per scaricarla
-  image     = "/home/samanta/Downloads/bionic-server-cloudimg-amd64-vagrant-20230607.0.1.box"
+  image     = "https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20180903.0.0/providers/virtualbox.box"
   cpus      = 1
   memory    = "512 mib"
   user_data = file("${path.module}/user_data")
@@ -55,3 +50,4 @@ resource "virtualbox_vm" "vm1" {
 output "vm1_IPAddr" {
   value = element(virtualbox_vm.vm1.*.network_adapter.0.ipv4_address, 0)
 }
+
