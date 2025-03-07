@@ -18,12 +18,12 @@ In questo README, spiegherò tutti i passaggi necessari per eseguire il progetto
 
 2. **Clona il repository**:
    ```bash
-   git clone https://github.com/TUO_USERNAME/terraform-vm-project.git
+   git clone https://github.com/samanta2299/terraform-vm-project.git
    cd terraform-vm-project
 
 Esercizio 1: creazione di una VM con Terraform
 main.tf: File di configurazione di Terraform
-
+```bash
 terraform {
   required_providers {
     virtualbox = {
