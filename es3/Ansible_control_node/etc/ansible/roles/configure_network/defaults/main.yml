@@ -1,0 +1,3 @@
+---
+# defaults file for configure_network
+ip_forward: '1'
