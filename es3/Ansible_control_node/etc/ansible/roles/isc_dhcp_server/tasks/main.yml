@@ -1,0 +1,26 @@
+--
+# tasks file for isc-dhcp-server
+- name: "Install isc-dhcp-server package"
+  apt:
+    name: isc-dhcp-server
+    state: present
+    update_cache: yes
+
+- name: "Copy dhcpd.conf configuration file"
+  template:
+    src: dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+    mode: '0644'
+
+- name: "Ensure isc-dhcp-server is enabled and started"
+  systemd:
+    name: isc-dhcp-server
+    enabled: yes
+    state: started
+
+- name: "Set correct network interface for DHCP server"
+  lineinfile:
+    path: /etc/default/isc-dhcp-server
+    regexp: '^INTERFACESv4='
+    line: 'INTERFACESv4="enp0s8 enp0s9 enp0s10"'
+    state: present
