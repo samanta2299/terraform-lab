@@ -1,0 +1,6 @@
+---
+- name: Configure the DHCP server
+  hosts: vm-fw
+  become: yes
+  roles:
+    - isc_dhcp_server
