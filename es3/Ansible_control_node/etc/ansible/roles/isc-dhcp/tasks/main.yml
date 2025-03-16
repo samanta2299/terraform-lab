@@ -5,10 +5,6 @@
     regexp: '^#?net.ipv4.ip_forward'
     line: 'net.ipv4.ip_forward=1'
   notify: Apply sysctl changes
-
-- name: "Apply sysctl changes"
-  ansible.builtin.command:
-    cmd: sysctl -p
     
 - name: "Install ISC DHCP Server"
   ansible.builtin.apt:
