@@ -15,14 +15,17 @@ mkdir es1
 cd es1
 ```
 
-Move into the directory and create main.tf
+### 2. Create the main.tf file
+Move into the directory and create the main.tf file:
 ```bash
 cd es1
 ```
 ```bash
 nano main.tf
 ```
-In the main.tf file, for Linux is recommended to download the vagrant box file and enter the local path and for Windows to provide the URL to the image
+In the main.tf file, for Linux, it is recommended to download the Vagrant box file and enter the local path
+For Windows, provide the URL to the image
+Here's an example of the main.tf file:
 ```bash
 terraform {
   required_providers {
@@ -52,20 +55,37 @@ output "vm1_IPAddr" {
   value = element(virtualbox_vm.vm1.*.network_adapter.0.ipv4_address, 0)
 }
 ```
+Once you've added the content, press CTRL + X to exit, then press Y to save the file
 
-Then CTRL + X to close nano and y to save the file
+### 3. Create the user_data File
 
-Then create the file user_data, which will be empty
+Next, create the user_data file, which can remain empty for this exercise:
 ```bash
 nano user_data
 ```
-Then CTRL + X to close nano and y to save the file
+Afterwards, press CTRL + X to exit, then press Y to save the empty file
 
-The configuration is ready. From the terminal, in the directory es1, where the main.tf and user_data are saved, run:
+### 4. Initialize Terraform
+
+In the terminal, within the es1 directory (where both main.tf and user_data are saved), run the following command to initialize Terraform:
 ```bash
 terraform init
 ```
+### 5. Apply the Terraform Configuration
+
+Run the following command to apply the configuration and create the VM:
 ```bash
 terraform apply --auto-approve
 ```
-And your vm will be automatically created
+Terraform will automatically create the VM based on the configuration
+
+### 6. Access the VM
+Once the process is complete, Terraform will output the IP address of the VM. Your VM will now be accessible at the provided IP address
+
+### Clean Up
+
+When you are finished with the VM, you can destroy it by running:
+```bash
+terraform destroy --auto-approve
+```
+This will delete the VM created by Terraform and clean up your environment
