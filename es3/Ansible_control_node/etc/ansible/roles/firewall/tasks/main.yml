@@ -1,0 +1,35 @@
+---
+- name: "Enable IP forwarding"
+  ansible.builtin.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    state: present
+    sysctl_set: yes
+    reload: yes
+
+- name: "Ensure iptables-persistent is installed"
+  ansible.builtin.apt:
+    name: iptables-persistent
+    state: present
+
+- name: "Ensure /etc/iptables directory exists"
+  ansible.builtin.file:
+    path: /etc/iptables
+    state: directory
+    mode: '0755'
+
+- name: "Ensure iptables rules file exists"
+  ansible.builtin.file:
+    path: /etc/iptables/rules.v4
+    state: touch
+    mode: '0644'
+
+- name: "Copy iptables script to firewall"
+  ansible.builtin.copy:
+    src: /etc/ansible/roles/firewall/files/iptables_rules.sh
+    dest: /root/iptables_rules.sh
+    mode: '0755'
+
+- name: "Apply iptables rules"
+  ansible.builtin.command: bash /root/iptables_rules.sh
+  notify: Save iptables rules
