@@ -17,6 +17,7 @@ Move into the directory and create the main.tf file:
 ```bash
 cd es1
 ```
+Create the main.tf file, in Lnux you can use:
 ```bash
 nano main.tf
 ```
