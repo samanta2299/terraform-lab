@@ -10,18 +10,20 @@ Open your terminal and create a new directory for the project.
 
 ```bash
 mkdir es1
+```
+```bash
 cd es1
 ```
 
 Move into the directory and create main.tf
-'''
-bash
+```bash
 cd es1
+```
+```bash
 nano main.tf
-'''
+```
 In the main.tf file, for Linux is recommended to download the vagrant box file and enter the local path and for Windows to provide the URL to the image
-'''
-bash
+```bash
 terraform {
   required_providers {
     virtualbox = {
@@ -49,24 +51,21 @@ resource "virtualbox_vm" "vm1" {
 output "vm1_IPAddr" {
   value = element(virtualbox_vm.vm1.*.network_adapter.0.ipv4_address, 0)
 }
-'''
+```
 
 Then CTRL + X to close nano and y to save the file
 
 Then create the file user_data, which will be empty
-'''
-bash
+```bash
 nano user_data
-'''
+```
 Then CTRL + X to close nano and y to save the file
 
 The configuration is ready. From the terminal, in the directory es1, where the main.tf and user_data are saved, run:
-'''
-bash
+```bash
 terraform init
-'''
-'''
-bash
+```
+```bash
 terraform apply --auto-approve
-'''
+```
 And your vm will be automatically created
