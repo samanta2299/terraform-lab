@@ -21,7 +21,7 @@ With this configuration file we will be able to create a VM, named "vm2" with:
 - RAM: 512 MB
 - 1 CPU
 - Image: vagrant box ubuntu 18.04
-- 
+
 “vm2” will have three different network interfaces, each with a specific purpose:
 - Host-Only Network Adapter (nic1): allows communication between the host and the VM but does not permit traffic to the internet or other networks
 - Internal Network Adapter (nic2): creates a private isolated network called "subnet_a" that can be used to connect multiple VMs together, but without access to the outside
