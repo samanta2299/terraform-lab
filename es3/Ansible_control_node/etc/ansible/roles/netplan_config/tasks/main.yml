@@ -1,0 +1,10 @@
+---
+- name: "Copy netplan configuration to the VM"
+  ansible.builtin.copy:
+    src: /etc/ansible/roles/netplan_config/files/00-cloud-init.yaml
+    dest: /etc/netplan/00-cloud-init.yaml
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Apply netplan configuration
