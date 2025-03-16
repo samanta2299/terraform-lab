@@ -1,4 +1,20 @@
 ---
+- name: "Enable IP forwarding"
+  ansible.builtin.lineinfile:
+    path: /etc/sysctl.conf
+    regexp: '^#?net.ipv4.ip_forward'
+    line: 'net.ipv4.ip_forward=1'
+    state: present
+  notify: Apply sysctl changes
+
+- name: "Enable NAT for Internet access (if needed)"
+  ansible.builtin.iptables:
+    table: nat
+    chain: POSTROUTING
+    jump: MASQUERADE
+    out_interface: enp0s8  # Modifica con l'interfaccia corretta
+  notify: Save iptables rules
+
 - name: "Copy netplan configuration file"
   ansible.builtin.copy:
     src: /etc/ansible/roles/static_ip_config/files/network-config.yaml
@@ -8,5 +24,6 @@
     mode: '0644'
 
 - name: "Apply netplan configuration"
-  ansible.builtin.command: netplan apply
+  ansible.builtin.command:
+    cmd: netplan apply
   notify: Restart networking
