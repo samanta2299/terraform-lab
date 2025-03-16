@@ -1,0 +1,21 @@
+---
+- name: "Install ISC DHCP Server"
+  ansible.builtin.apt:
+    name: isc-dhcp-server
+    state: present
+    update_cache: yes
+
+- name: "Copy DHCP configuration file"
+  ansible.builtin.copy:
+    src: /etc/ansible/roles/isc-dhcp/files/dhcpd.conf
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart DHCP Server
+
+- name: "Ensure DHCP service is enabled and running"
+  ansible.builtin.service:
+    name: isc-dhcp-server
+    state: started
+    enabled: yes
