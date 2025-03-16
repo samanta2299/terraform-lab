@@ -1,0 +1,8 @@
+---
+- name: "Enable all network interfaces"
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - enable_network_interfaces
