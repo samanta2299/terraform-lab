@@ -10,7 +10,7 @@ terraform {
 resource "virtualbox_vm" "vm2" {
   count     = 1
   name      = "vm2"
-  # image     = "https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20180903.0.0/providers/virtualbox.box"
+  #Replace with local image or with https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20180903.0.0/providers/virtualbox.box
   image     = "/home/samanta/Downloads/bionic-server-cloudimg-amd64-vagrant-20230607.0.1.box"
   cpus      = 1
   memory    = "512 mib"
