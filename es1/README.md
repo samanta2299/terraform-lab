@@ -11,9 +11,6 @@ Open your terminal and create a new directory for the project.
 ```bash
 mkdir es1
 ```
-```bash
-cd es1
-```
 
 ### 2. Create the main.tf file
 Move into the directory and create the main.tf file:
