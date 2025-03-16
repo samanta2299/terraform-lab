@@ -1,4 +1,4 @@
---
+---
 - name: "Copy netplan configuration file"
   ansible.builtin.copy:
     src: /etc/ansible/roles/static_ip_config/files/network-config.yaml
