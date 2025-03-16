@@ -1,0 +1,12 @@
+--
+- name: "Copy netplan configuration file"
+  ansible.builtin.copy:
+    src: /etc/ansible/roles/static_ip_config/files/network-config.yaml
+    dest: /etc/netplan/01-netcfg.yaml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: "Apply netplan configuration"
+  ansible.builtin.command: netplan apply
+  notify: Restart networking
