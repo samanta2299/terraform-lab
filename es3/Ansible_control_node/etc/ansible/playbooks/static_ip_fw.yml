@@ -1,0 +1,6 @@
+---
+- name: "Configure static IP on vm-fw"
+  hosts: vm-fw
+  become: yes
+  roles:
+    - static_ip_config
