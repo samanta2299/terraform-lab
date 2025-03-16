@@ -1,0 +1,6 @@
+---
+- name: "Configure 3-legged Firewall"
+  hosts: vm-fw
+  become: yes
+  roles:
+    - firewall
