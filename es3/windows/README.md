@@ -6,7 +6,7 @@
 
 ### 1. Create a Directory for the Project
 
-Open your Powershell terminal and create a new directory for the project.
+Open your PowerShell terminal and create a new directory for the project.
 
 ```bash
 mkdir es3
