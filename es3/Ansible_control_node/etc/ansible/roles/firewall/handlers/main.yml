@@ -1,0 +1,10 @@
+---
+- name: "Save iptables rules"
+  ansible.builtin.command: iptables-save
+  register: iptables_output
+
+- name: "Write iptables rules to file"
+  ansible.builtin.copy:
+    content: "{{ iptables_output.stdout }}"
+    dest: /etc/iptables/rules.v4
+    mode: '0644'
