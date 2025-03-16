@@ -2,11 +2,16 @@
 
 ## Exercise 1: create a VM on VirtualBox using Terraform 
 
-Open the terminal and create a directory, for example, es1
-'''
-bash
+## Steps to Create the VM
+
+### 1. Create a Directory for the Project
+
+Open your terminal and create a new directory for the project.
+
+```bash
 mkdir es1
-'''
+cd es1
+```
 
 Move into the directory and create main.tf
 '''
