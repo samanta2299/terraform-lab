@@ -91,7 +91,7 @@ vm-int ansible_host=192.168.56.248 ansible_user=vagrant ansible_ssh_private_key_
 ```
 
 
-### 3. Test the configuration
+### 4. Test the configuration
 copy the ssh key with the command:
 ```bash
 ssh-copy-id vagrant@<IP_VM-ext>
@@ -128,7 +128,7 @@ Repeat this operation for all the VMs and the test the configuration, running fr
 ansible all -m ping
 ```
 
-### 4. Create the role "enable_network_interfaces"
+### 5. Create the role "enable_network_interfaces"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
 cd /etc/ansible/roles
@@ -156,11 +156,29 @@ And enter:
   when: item != 'lo'
   ignore_errors: yes
 ```
+Then move to the directory playbooks:
+```bash
+cd ../../playbooks/
+```
+In case you have not create it, you can do it using:
+```bash
+cd ../../../
+sudo mkdir playbooks
+```
+And create the playbook: "interfaces_up.yml" using the command:
+```bash
+sudo nano interfaces_up.yml
+```
+```bash
+---
+- name: "Enable all network interfaces"
+  hosts: all
+  become: yes
+  gather_facts: yes
 
-
-
-
-
+  roles:
+    - enable_network_interfaces
+```
 
 
 
