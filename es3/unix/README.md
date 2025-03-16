@@ -36,6 +36,7 @@ We will be using Terraform to create a basic configuration of the 3-Legged Firew
   - **Host-Only:** for communication with the Ansible Control Node
   - **subnet_b:** a subnet that contains the VMs located in the internal network for network segmentation purposes
 
+Create the terraform main.tf file using the command:
 ```bash
 nano main.tf
 ```
