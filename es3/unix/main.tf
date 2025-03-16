@@ -9,7 +9,7 @@ terraform {
 
 resource "virtualbox_vm" "vm-ext" {
   name      = "vm-ext"
-  image     = "https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20180903.0.0/providers/virtualbox.box"
+  image     = "/home/samanta/Downloads/bionic-server-cloudimg-amd64-vagrant-20230607.0.1.box" # replace with your local image
   cpus      = 1
   memory    = "512 mib"
   user_data = file("${path.module}/user_data")
@@ -22,7 +22,7 @@ resource "virtualbox_vm" "vm-ext" {
 
 resource "virtualbox_vm" "vm-int" {
   name      = "vm-int"
-  image     = "https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20180903.0.0/providers/virtualbox.box"
+  image     = "/home/samanta/Downloads/bionic-server-cloudimg-amd64-vagrant-20230607.0.1.box"
   cpus      = 1
   memory    = "512 mib"
   user_data = file("${path.module}/user_data")
