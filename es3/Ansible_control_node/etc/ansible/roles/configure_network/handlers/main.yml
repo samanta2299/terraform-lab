@@ -1,7 +1,0 @@
----
-# handlers file for configure_network
-- name: "Apply Netplan"
-  command: netplan apply
-
-- name: Reload sysctl settings
-  command: sysctl -p
