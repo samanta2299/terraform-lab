@@ -1,0 +1,9 @@
+---
+- name: "Apply Netplan configuration to multiple VMs"
+  hosts:
+    - vm-int
+    - vm-ext
+    - vm-dmz
+  become: yes
+  roles:
+    - netplan_config
