@@ -6,7 +6,7 @@
 
 ### 1. Create a Directory for the Project
 
-Open your terminal and create a new directory for the project.
+Open your PowerShell terminal and create a new directory for the project.
 
 ```bash
 mkdir es2-c
@@ -27,12 +27,7 @@ With this configuration file we will be able to create a VM, named "vm2" with:
 - Internal Network Adapter (nic2): creates a private isolated network called "subnet_a" that can be used to connect multiple VMs together, but without access to the outside
 - NAT (nic3): allows the VM to access the internet using the host's IP address as a gateway
 
-```bash
-nano main.tf
-```
-In the main.tf file, for Linux, it is recommended to download the Vagrant box file and enter the local path
-For Windows, provide the URL to the image
-Here's an example of the main.tf file:
+Create the main.tf file, that should be as follows (for Windows, provide the URL to the image):
 ```bash
 terraform {
   required_providers {
@@ -84,10 +79,6 @@ Once you've added the content, press CTRL + X to exit, then press Y to save the 
 ### 3. Create the user_data File
 
 Next, create the user_data file, which can remain empty for this exercise:
-```bash
-nano user_data
-```
-Afterwards, press CTRL + X to exit, then press Y to save the empty file
 
 ### 4. Initialize Terraform
 
