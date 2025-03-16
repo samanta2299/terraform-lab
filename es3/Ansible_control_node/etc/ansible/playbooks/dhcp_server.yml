@@ -1,0 +1,6 @@
+---
+- name: Install and configure ISC DHCP Server
+  hosts: vm-fw
+  become: yes
+  roles:
+    - isc-dhcp
