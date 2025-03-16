@@ -18,27 +18,29 @@ Move into the directory and create the main.tf file:
 cd es3
 ```
 We will be using Terraform to create a basic configuration of the 3-Legged Firewall network topology. Terraform will creare 4 VMs:
-- *vm-ext:* VM in the external network, with the following network interfaces:
-  - *NAT:*  for internet access
-  - *Host-Only:* for communication with the Ansible Control Node
-  - *subnet_a:* a subnet that contains the VMs located in the external network for network segmentation purposes
+- **vm-ext:** VM in the external network, with the following network interfaces:
+  - **NAT:**  for internet access
+  - **Host-Only:** for communication with the Ansible Control Node
+  - **subnet_a:** a subnet that contains the VMs located in the external network for network segmentation purposes
   
-- *vm-fw:* DHCP server and 3-Legged Firewall, with the following network interfaces:
-  - *NAT:*  for internet access
-  - *Host-Only:* for communication with the Ansible Control Node
-  - *subnet_a, subnet_b, subnet_dmz:* to communicate with all network segments
+- **vm-fw:** DHCP server and 3-Legged Firewall, with the following network interfaces:
+  - **NAT:**  for internet access
+  - **Host-Only:** for communication with the Ansible Control Node
+  - **subnet_a, subnet_b, subnet_dmz:** to communicate with all network segments
 
-- *vm-dmz:* VM in the DMZ network, with the following network interfaces:
-  - *NAT:*  for internet access
-  - *Host-Only:* for communication with the Ansible Control Node
-  - *subnet_dmz:* is a subnet that contains the VMs located in the DMZ network for network segmentation purposes
-- *vm-int:* VM in the internal network, with the following network interfaces:
-  - *Host-Only:* for communication with the Ansible Control Node
-  - *subnet_b:* a subnet that contains the VMs located in the internal network for network segmentation purposes
+- **vm-dmz:** VM in the DMZ network, with the following network interfaces:
+  - **NAT:**  for internet access
+  - **Host-Only:** for communication with the Ansible Control Node
+  - **subnet_dmz:** is a subnet that contains the VMs located in the DMZ network for network segmentation purposes
+- **vm-int:** VM in the internal network, with the following network interfaces:
+  - **Host-Only:** for communication with the Ansible Control Node
+  - **subnet_b:** a subnet that contains the VMs located in the internal network for network segmentation purposes
 
 ```bash
 nano main.tf
 ```
+
+```bash
 terraform {
   required_providers {
     virtualbox = {
