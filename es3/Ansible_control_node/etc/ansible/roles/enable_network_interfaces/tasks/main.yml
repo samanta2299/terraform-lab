@@ -1,0 +1,12 @@
+---
+- name: "Gather network interfaces facts"
+  ansible.builtin.setup:
+    filter: ansible_interfaces
+  register: network_interfaces
+
+- name: "Bring up all network interfaces"
+  ansible.builtin.command:
+    cmd: "ip link set {{ item }} up"
+  loop: "{{ network_interfaces.ansible_facts.ansible_interfaces }}"
+  when: item != 'lo'
+  ignore_errors: yes
