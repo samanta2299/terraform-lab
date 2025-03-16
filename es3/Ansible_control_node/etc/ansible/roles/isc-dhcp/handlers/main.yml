@@ -3,7 +3,3 @@
   ansible.builtin.service:
     name: isc-dhcp-server
     state: restarted
-
-- name: "Apply sysctl changes"
-  ansible.builtin.command:
-    cmd: sysctl -p
