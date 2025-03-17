@@ -7,11 +7,16 @@ While some adaptations have been made, users may still need to fine-tune configu
 
 ## Exercise 1: create a VM using Terraform
 
+![](images/es1.png)
+
 ## Exercise 2: create a VM and manage its network interfaces
 - 2a. Manual configuration of network interfaces using the VirtualBox GUI
 - 2b. Manual configuration of network interfaces via the command line using VBoxManage
 - 2c. Automated creation of a VM with multiple network interfaces using Terraform
+![](images/es2-c.png)
 
 ## Exercise 3: create and configure a 3-Legged Firewall using Terraform and Ansible
-- 3a. Create a complex network topology (3-Legged Firewall) using Terraform to create VMs on VirtualBox 
+- 3a. Create a complex network topology (3-Legged Firewall) using Terraform to create VMs on VirtualBox
+![](images/es3.png)
 - 3b. Use Ansible to manage network and configure the created VMs
+![](images/3b.png)
