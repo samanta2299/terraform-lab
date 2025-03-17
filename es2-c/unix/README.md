@@ -6,7 +6,7 @@
 
 ### 1. Create a Directory for the Project
 
-Open your terminal and create a new directory for the project.
+Open your terminal and create a new directory for the project
 
 ```bash
 mkdir es2-c
