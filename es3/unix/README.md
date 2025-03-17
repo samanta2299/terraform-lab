@@ -152,7 +152,6 @@ provisioner "local-exec" {
       VBoxManage modifyvm vm-fw --nic3 intnet --intnet3 subnet_a
       VBoxManage modifyvm vm-fw --nic4 intnet --intnet4 subnet_b
       VBoxManage modifyvm vm-fw --nic5 intnet --intnet5 subnet_dmz
-      VBoxManage modifyvm vm-fw --nic2 nat
       VBoxManage startvm vm-fw --type headless
     EOT
   }
