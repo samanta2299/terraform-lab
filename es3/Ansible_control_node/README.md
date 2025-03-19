@@ -36,8 +36,8 @@ Copy the ssh key with the command:
 ```bash
 ssh-copy-id vagrant@<IP_VM-ext>
 ```
-Replace <IP_VM-ext> with the actual IP address of the VM
-Repeat this command for each VM you have created, replacing the IP accordingly. This step allows Ansible to connect to the remote nodes without requiring a password each time
+**Replace <IP_VM-ext> with the actual IP address of your VM**
+**Repeat this command for each VM you have created, replacing the IP accordingly.** This step allows Ansible to connect to the remote nodes without requiring a password each time
 
 In case you receive the "permission denied (publickey)" error, run the following commands **from the terminal of the manage VM you have created using Terraform** to enable SSH connection using PasswordAuthentication:
 1. Edit the sshd_config file:
