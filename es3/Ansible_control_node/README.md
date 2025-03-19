@@ -344,7 +344,7 @@ Then run the playbook:
 ```bash
 ansible-playbook dhcp_server.yml
 ```
-This playbook installs a isc dhco server on the vm-fw that is now ready to assign IP addresses to the VMs
+This playbook installs a isc dhcp server on the vm-fw that is now ready to assign IP addresses to the VMs
 
 ### Create the role "netplan_config"
 From the terminal of the Ansible Control Node, move to the directory roles:
@@ -608,9 +608,11 @@ Add the following configuration:
     - firewall
 ```
 
-
-
-
+Then run the playbook:
+```bash
+ansible-playbook firewall_setup.yml
+```
+That will configure the firewall on vm-fw
 
 
 
