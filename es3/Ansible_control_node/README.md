@@ -22,7 +22,7 @@ Edit the hosts file:
 ```bash
 sudo nano hosts
 ```
-Add the following configuration, replacing the IP addresses and paths as needed to match your VM setup:
+Add the following configuration, **replacing the IP addresses and variables as needed to match your VMs setup**:
 ```bash
 [all]
 vm-ext ansible_host=192.168.56.250 ansible_user=vagrant ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa ansible_sudo_pass=vagrant
