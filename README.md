@@ -1,5 +1,5 @@
 # Terraform-lab
-The Terraform Lab is set up on Ubuntu 22.04 using Terraform v1.11.2. It utilizes the VirtualBox provider from Terraform (terra-farm v0.2.2-alpha.1) 
+The Terraform Lab is set up on Ubuntu 22.04 using Terraform v1.11.2. It utilizes the VirtualBox provider from Terraform (terra-farm v0.2.2-alpha.1 a community-supported VirtualBox provider) 
 and runs on VirtualBox 7.0.24 r167081, using the Vagrant box: jammy-server-cloudimg-amd64-vagrant.box (20230607.0.1)
 
 Terraform Lab has been adjusted to be more **cross-platform**, aiming to improve compatibility with **Windows, macOS, and Linux**. 
