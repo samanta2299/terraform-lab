@@ -69,8 +69,8 @@ Repeat this operation for all the VMs and to **test the configuration** run from
 ```bash
 ansible all -m ping
 ```
-In SSH, you can check the status of the network interfaces that were previously created
-As you can see, the network interfaces have been created, but they are in a "DOWN" state, meaning they are not active
+By connecting in SSH to a controlled VM, you can check the status of the network interfaces that were previously created
+As you can see, the network interfaces have been created, but they are in a "DOWN" state, meaning they are not active (only host-only UP)
 
 ![](images/4.png)
 
@@ -125,6 +125,13 @@ sudo nano interfaces_up.yml
   roles:
     - enable_network_interfaces
 ```
+Run the playbook, using the command:
+```bash
+ansible-playbook interfaces_up.yml
+```
+As a result of the playbook, by connecting in SSH to the target VMs it is possible to see that the network interfaces are now all up
+![](images/1.png)
+
 ### 6. Create the role "static_ip_config"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
