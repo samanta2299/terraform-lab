@@ -1,13 +1,11 @@
 ## Exercise 3b: Configure the 3-Legged Firewall topology using Ansible
 
-### 1. Enter the Ansible Control Node 
-
 Move to the directory /etc/ansible:
 ```bash
 cd /etc/ansible
 ```
 
-### 2. Configure ansible.cfg file
+### Configure ansible.cfg file
 
 Edit the ansible.cfg file:
 ```bash
@@ -30,7 +28,7 @@ inventory = /etc/ansible/hosts
 host_key_checking = False
 ```
 
-### 3. Configure hosts file
+### Configure hosts file
 Edit the hosts file:
 ```bash
 sudo nano hosts
@@ -89,7 +87,7 @@ vm-int ansible_host=192.168.56.248 ansible_user=vagrant ansible_ssh_private_key_
 ```
 
 
-### 4. Test the configuration
+### Test the configuration
 copy the ssh key with the command:
 ```bash
 ssh-copy-id vagrant@<IP_VM-ext>
@@ -126,7 +124,7 @@ Repeat this operation for all the VMs and the test the configuration, running fr
 ansible all -m ping
 ```
 
-### 5. Create the role "enable_network_interfaces"
+### Create the role "enable_network_interfaces"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
 cd /etc/ansible/roles
@@ -255,7 +253,7 @@ network:
       addresses: [10.10.0.1/24]
 ```
 
-### 7. Create the role "isc-dhcp"
+### Create the role "isc-dhcp"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
 cd ../../../roles
@@ -364,7 +362,7 @@ Add the following configuration:
     - isc-dhcp
 ```
 
-### 8. Create the role "netplan_config"
+### Create the role "netplan_config"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
 cd ../roles
@@ -440,7 +438,7 @@ Add the following configuration:
   roles:
     - netplan_config
 ```
-### 9. Create the role "firewall"
+### Create the role "firewall"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
 cd ../roles
