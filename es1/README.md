@@ -24,6 +24,7 @@ nano main.tf
 In the main.tf file for
 - **Linux:** recommended to download the Vagrant box file (https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20230607.0.1/providers/virtualbox.box) and enter the local path 
 - **Windows**: provide the URL to the image
+
 **Note:**
 - In Unix systems, typically host_interface = “vboxnet0”
 - In Windows, typically host_interface = “VirtualBox Host-Only Ethernet Adapter”
