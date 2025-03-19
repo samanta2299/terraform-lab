@@ -1,5 +1,3 @@
-#20230607.0.1
-#https://portal.cloud.hashicorp.com/vagrant/discover/ubuntu/bionic64/versions/20230607.0.1
 terraform {
   required_providers {
     virtualbox = {
