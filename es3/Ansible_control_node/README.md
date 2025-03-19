@@ -228,6 +228,7 @@ Run the playbook, using the command:
 ansible-playbook static_ip_fw.yml
 ```
 As a result of the playbook, by connecting in SSH to vm-fw it is possible to see that the IP addresses of all network interfaces have been configured
+
 ![](images/3.png)
 
 
