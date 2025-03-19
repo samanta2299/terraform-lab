@@ -65,10 +65,14 @@ Then, from the terminal of the Ansible Control Node, enter again:
 ssh-copy-id vagrant@<IP_VM-ext>
 ```
 
-Repeat this operation for all the VMs and to **test the configuration** run from the terminal of the Ansible Control Node the following command:
+Repeat this operation for all the VMs
+
+Once you've copied the SSH keys to all VMs, verify the configuration by running the following command from the terminal of your Ansible Control Node:
 ```bash
 ansible all -m ping
 ```
+If everything is set up correctly, this command should return a "pong" response from all the VMs.
+
 By connecting in SSH to a controlled VM, you can check the status of the network interfaces that were previously created
 As you can see, the network interfaces have been created, but they are in a "DOWN" state, meaning they are not active (only host-only UP)
 
