@@ -72,7 +72,7 @@ ansible all -m ping
 In SSH, you can check the status of the network interfaces that were previously created
 As you can see, the network interfaces have been created, but they are in a "DOWN" state, meaning they are not active
 
-![](../images/es4.png)
+![](images/4.png)
 
 ### Create the role "enable_network_interfaces"
 From the terminal of the Ansible Control Node, move to the directory roles:
