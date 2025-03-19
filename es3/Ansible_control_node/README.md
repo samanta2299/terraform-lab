@@ -612,13 +612,10 @@ Add the following configuration:
     - firewall
 ```
 
-Then run the playbook:
+Then run the playbook, that configures the firewall rules on vm-fw:
 ```bash
 ansible-playbook firewall_setup.yml
 ```
-That will configure the firewall on vm-fw
-
-
 
 
 
