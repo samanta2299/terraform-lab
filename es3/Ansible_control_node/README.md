@@ -209,6 +209,27 @@ network:
       dhcp4: no
       addresses: [10.10.0.1/24]
 ```
+Move to the directory playbooks and create the playbook static_ip_fw.yml using the command:
+```bash
+cd ../../../playbooks
+sudo nano static_ip_fw.yml
+```
+Add the following configuration:
+```bash
+---
+- name: "Configure static IP on vm-fw"
+  hosts: vm-fw
+  become: yes
+  roles:
+    - static_ip_config
+```
+Run the playbook, using the command:
+```bash
+ansible-playbook static_ip_fw.yml
+```
+As a result of the playbook, by connecting in SSH to vm-fw it is possible to see that the IP addresses of all network interfaces have been configured
+![](images/3.png)
+
 
 ### Create the role "isc-dhcp"
 From the terminal of the Ansible Control Node, move to the directory roles:
@@ -318,6 +339,11 @@ Add the following configuration:
   roles:
     - isc-dhcp
 ```
+Then run the playbook:
+```bash
+ansible-playbook dhcp_server.yml
+```
+This playbook installs a isc dhco server on the vm-fw that is now ready to assign IP addresses to the VMs
 
 ### Create the role "netplan_config"
 From the terminal of the Ansible Control Node, move to the directory roles:
@@ -395,6 +421,22 @@ Add the following configuration:
   roles:
     - netplan_config
 ```
+Then run the playbook:
+```bash
+ansible-playbook apply_netplan.yml
+```
+From Ansible Control Node terminal connect to the VMs, in this example vm-ext, via SSH:
+```bash
+ssh vagrant@192.168.56.250
+```
+(Note. replace 192.168.56.250 with the actual IP address of your vm-fw)
+Once inside the vm-fw terminal, use the command:
+```bash
+ip -color a
+```
+that will display the IP addresses configured on the VM
+![](images/5.png)
+
 ### Create the role "firewall"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
