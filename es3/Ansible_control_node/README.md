@@ -350,6 +350,23 @@ ansible-playbook dhcp_server.yml
 ```
 This playbook installs a isc dhcp server on the vm-fw that is now ready to assign IP addresses to the VMs
 
+### If you are using VirtualBox version older than 7.0.24, you may experience issues due to missing network connectivity
+
+To resolve this, you need to create a new NAT network. Follow these steps:
+1. Open Tools in VirtualBox
+2. Click on the menu icon on the right to open the sliding menu
+3. Select NAT Networks from the menù on the top
+4. Click Create
+5. In the NAT Networks section, ensure that Enable DHCP is checked
+
+Once the NAT network is created, update the network adapter settings for each virtual machine:
+1. Open the settings of the VM
+2. Navigate to the Network section
+3. Locate the adapter currently set to NAT and change to NAT Network
+4. Write the name of the NAT network you just created
+
+This should restore network connectivity for your virtual machines
+
 ### Create the role "netplan_config"
 From the terminal of the Ansible Control Node, move to the directory roles:
 ```bash
