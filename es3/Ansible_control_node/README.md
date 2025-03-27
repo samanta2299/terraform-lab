@@ -358,12 +358,14 @@ To resolve this, you need to create a new NAT network. Follow these steps:
 3. Select NAT Networks from the menù on the top
 4. Click Create
 5. In the NAT Networks section, ensure that Enable DHCP is checked
+![](images/NAT1.png)
 
 Once the NAT network is created, update the network adapter settings for each virtual machine:
 1. Open the settings of the VM
 2. Navigate to the Network section
 3. Locate the adapter currently set to NAT and change to NAT Network
 4. Write the name of the NAT network you just created
+![](images/NAT2.png)
 
 This should restore network connectivity for your virtual machines
 
